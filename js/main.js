@@ -169,6 +169,13 @@ $('body').on('click', '.link--more', function(event) {
 
 });
 
+
+
+$('.link--tooltip').on('click',  function(event) {
+    event.preventDefault();
+    /* Act on the event */
+});
+
 $('.terminal-visual .tooltip-circle').hover(function() {
     /* Stuff to do when the mouse enters the element */
     parentPos = $(this).parents('.terminal-visual').offset()
@@ -195,7 +202,11 @@ $('.terminal-visual .tooltip-circle').hover(function() {
 //     /* Stuff to do when the mouse leaves the element */
 // });
 
+var $servicesItems = $('.services-items').find('.services-item:hidden')
+$('.link--service span').text($servicesItems.length)
+$('.link--service').attr('data-open', $('.link--service').text())
 
+// var $servicesItems = $('.services-items').find('.services-item:hidden')
 
 $('body').on('click', '.link--service', function(event) {
     event.preventDefault();
@@ -204,7 +215,7 @@ $('body').on('click', '.link--service', function(event) {
     $openText = $(this).attr('data-open');
     $(this).toggleClass('active');
 
-    $servicesItems = $('.services-items').find('.non-visible')
+    
 
     $.each($servicesItems, function(index, el) {
         $(el).toggle()
@@ -235,14 +246,17 @@ $('body').on('click', '.cookie-save .btn--start', function(event) {
     $(this).parents('.cookie-save').hide()
 });
 
+if (isMobile == false) {
+    $wrapperMl = $('.wrapper').css('margin-left')
+    $wrapperPl = $('.wrapper').css('padding-left')
+    // console.log($wrapperPl)
+    $('.cabinet-navigalion').css('margin-left', $wrapperMl)
+    $('.cabinet-navigalion').css('padding-left', $wrapperPl)
+    $('.cabinet-content').css('margin-right', $wrapperMl)
+    $('.cabinet-content').css('padding-right', $wrapperPl)
+}
 
-$wrapperMl = $('.wrapper').css('margin-left')
-$wrapperPl = $('.wrapper').css('padding-left')
-// console.log($wrapperPl)
-$('.cabinet-navigalion').css('margin-left', $wrapperMl)
-$('.cabinet-navigalion').css('padding-left', $wrapperPl)
-$('.cabinet-content').css('margin-right', $wrapperMl)
-$('.cabinet-content').css('padding-right', $wrapperPl)
+
 
 
 

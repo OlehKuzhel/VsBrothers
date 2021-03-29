@@ -5495,7 +5495,7 @@ input[type='button'].styler[disabled], input[type='submit'].styler[disabled] { b
 
 @font-face { font-family: "Manrope"; font-weight: 700; font-style: normal; font-display: swap; src: url("../fonts/manrope/Manrope-Bold.eot"); src: url("../fonts/manrope/Manrope-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/manrope/Manrope-Bold.woff") format("woff"), url("../fonts/manrope/Manrope-Bold.ttf") format("truetype"); }
 
-@font-face { font-family: "Manrope"; font-weight: 600; font-style: normal; font-display: swap; src: url("../fonts/manrope/Manrope-Semibold.eot"); src: url("../fonts/manrope/Manrope-Semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/manrope/Manrope-Semibold.woff") format("woff"), url("../fonts/manrope/Manrope-Semibold.ttf") format("truetype"); }
+@font-face { font-family: "Manrope"; font-weight: 600; font-style: normal; font-display: swap; src: url("../fonts/manrope/Manrope-SemiBold.eot"); src: url("../fonts/manrope/Manrope-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/manrope/Manrope-SemiBold.woff") format("woff"), url("../fonts/manrope/Manrope-SemiBold.ttf") format("truetype"); }
 
 @font-face { font-family: "Manrope"; font-weight: 500; font-style: normal; font-display: swap; src: url("../fonts/manrope/Manrope-Medium.eot"); src: url("../fonts/manrope/Manrope-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/manrope/Manrope-Medium.woff") format("woff"), url("../fonts/manrope/Manrope-Medium.ttf") format("truetype"); }
 
@@ -5644,6 +5644,8 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 .link--next.not-active:hover:after { visibility: visible; opacity: 1; bottom: calc(100% + 1.3rem); }
 
 .link--next.not-active:hover:before { visibility: visible; opacity: 1; bottom: calc(100% + .6rem); }
+
+.link--openmenu { display: none; }
 
 .link--tooltip { width: 2rem; height: 2rem; display: inline-block; vertical-align: middle; }
 
@@ -5859,6 +5861,8 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-header .header-content { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: end; -webkit-justify-content: flex-end; -ms-flex-pack: end; justify-content: flex-end; width: 100%; }
 
+.section-header .header-content__row { display: none; }
+
 .section-header .header-content__menu { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: start; -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; -webkit-box-pack: start; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; padding: 0 1.2rem 0 0; margin: 0; list-style: none; }
 
 .section-header .header-content__menu li { margin-right: 2.2rem; padding: 3.4rem 0; position: relative; }
@@ -5953,7 +5957,7 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-main .main-content__btns .btn { margin-right: 4.8rem; }
 
-.section-main .main-footer { position: absolute; bottom: 0; width: 100%; z-index: 3; left: 0; border-top: 1px solid #FFFFFF; }
+.section-main .main-footer { position: absolute; bottom: 0; width: 100%; z-index: 3; left: 0; border-top: 1px solid rgba(255, 255, 255, 0.5); }
 
 .section-main .main-footer__content { padding: 4rem 0; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; }
 
@@ -6059,6 +6063,8 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-services .services-items .link--service { font-weight: 1; font-weight: 700; font-size: 2rem; line-height: 2.8rem; letter-spacing: 0.15px; color: #FFFFFF; background: #3D66AC; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; grid-column: 3 / span 2; }
 
+.section-services .services-items .link--service span { margin: 0 .5rem; }
+
 .section-services .services-items .link--service:hover { color: #3D66AC; background: #F7F7FF; }
 
 .section-services .services-items .link--service.active { grid-column: 4 / span 1; }
@@ -6071,7 +6077,7 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-services .services-item .icon svg { max-width: 100%; width: auto; height: auto; max-height: 100%; }
 
-.section-services .services-item p { text-align: center; font-weight: 600; color: #3367B1; line-height: 1.6rem; }
+.section-services .services-item p { text-align: center; font-weight: 600; color: #3367B1; line-height: 2.4rem; }
 
 .section-services .services-item:nth-child(1) .icon svg { max-width: 8rem; }
 
