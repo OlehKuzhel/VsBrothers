@@ -33,13 +33,16 @@ loginBtn.on('click', function(event) {
     formLogin.toggleClass('show');
 });
 
+if (isMobile == false) {
+    $(document).click(function (e) {
+        if ( !loginBtn.is(e.target) && !formLogin.is(e.target) && formLogin.has(e.target).length === 0) {
+            formLogin.removeClass('show');
+            loginBtn.removeClass('active');
+        };
+    });
+}
 
-$(document).click(function (e) {
-    if ( !loginBtn.is(e.target) && !formLogin.is(e.target) && formLogin.has(e.target).length === 0) {
-        formLogin.removeClass('show');
-        loginBtn.removeClass('active');
-    };
-});
+
 
 var sliderInsurance = new Swiper('.insurance-slider', {
         speed: 800,
