@@ -6293,6 +6293,10 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-contacts .contacts-tabs__items .map-frame iframe { display: block; width: 100%; height: 100%; }
 
+.section-contacts .contacts-tabs__items .map-frame a { width: 100%; height: 100%; }
+
+.section-contacts .contacts-tabs__items .map-frame a img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
+
 .section-contacts .contacts-tabs__items .map-title { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: start; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; width: 100%; }
 
 .section-contacts .contacts-tabs__items .map-title h4 { color: #2A2A2A; }
