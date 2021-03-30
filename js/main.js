@@ -15,11 +15,14 @@ var isMobile = false;
 $(window).scroll(function() {
     var height = $(window).scrollTop(),
         heightSection = $('.section-main').height();
-    if(height > heightSection){
-        $('header').addClass('invert');
-    } else{
-        $('header').removeClass('invert');
+    if (!$('header').hasClass('open')) {
+        if(height > heightSection){
+            $('header').addClass('invert');
+        } else{
+            $('header').removeClass('invert');
+        }
     }
+    
 });
 var loginBtn = $('.btn--primary.login'),
     formLogin = $('.form-login');
@@ -52,13 +55,13 @@ var sliderInsurance = new Swiper('.insurance-slider', {
             init: function () {
                 $all = this.slides.length
                 $index = this.activeIndex
-                $numbers = $('.insurance-navigalion').find('p')
+                $numbers = $('.insurance-navigation').find('p')
                 $activenumb = $numbers.find('.active').text($index + 1)
                 $allnumb = $numbers.find('.all').text($all)
             },
             slideChange: function () {
                 $index = this.activeIndex
-                $numbers = $('.insurance-navigalion').find('p')
+                $numbers = $('.insurance-navigation').find('p')
                 $activenumb = $numbers.find('.active').text($index + 1);
                 
                 $prevIndex = this.previousIndex;
@@ -85,13 +88,13 @@ var sliderCabinet = new Swiper('.cabinet-slider', {
             init: function () {
                 $all = this.slides.length
                 $index = this.activeIndex
-                $numbers = $('.cabinet-navigalion__row').find('p')
+                $numbers = $('.cabinet-navigation__row').find('p')
                 $activenumb = $numbers.find('.active').text($index + 1)
                 $allnumb = $numbers.find('.all').text($all)
             },
             slideChange: function () {
                 $index = this.activeIndex
-                $numbers = $('.cabinet-navigalion__row').find('p')
+                $numbers = $('.cabinet-navigation__row').find('p')
                 $activenumb = $numbers.find('.active').text($index + 1);
                 
                 // $prevIndex = this.previousIndex;
@@ -250,10 +253,61 @@ if (isMobile == false) {
     $wrapperMl = $('.wrapper').css('margin-left')
     $wrapperPl = $('.wrapper').css('padding-left')
     // console.log($wrapperPl)
-    $('.cabinet-navigalion').css('margin-left', $wrapperMl)
-    $('.cabinet-navigalion').css('padding-left', $wrapperPl)
+    $('.cabinet-navigation').css('margin-left', $wrapperMl)
+    $('.cabinet-navigation').css('padding-left', $wrapperPl)
     $('.cabinet-content').css('margin-right', $wrapperMl)
     $('.cabinet-content').css('padding-right', $wrapperPl)
+} else {
+
+    $mapCount = $('.contacts-tabs__item.active').find('.map')
+    $('.contacts-navigation .all').text($mapCount.length);
+
+    startSlide = 0;
+
+    $('body').on('click', '.contacts-navigation .contacts-next', function(event) {
+        event.preventDefault();
+        
+        $activeCountry = $('.contacts-tabs__item.active').find('.map')
+
+        if (startSlide < $activeCountry.length - 1) {
+            $($activeCountry[startSlide]).fadeOut('fast', function() {
+                startSlide++
+                $($activeCountry[startSlide]).fadeIn('fast')
+                $('.contacts-navigation .active').text(startSlide + 1)
+            });
+
+        }
+
+    });
+
+    $('body').on('click', '.contacts-navigation .contacts-prev', function(event) {
+        event.preventDefault();
+        
+        $activeCountry = $('.contacts-tabs__item.active').find('.map')
+
+        if (startSlide > 0) {
+            $($activeCountry[startSlide]).fadeOut('fast', function() {
+                startSlide--
+                $($activeCountry[startSlide]).fadeIn('fast')
+                $('.contacts-navigation .active').text(startSlide + 1)
+            });
+
+        }
+
+    });
+
+    $('body').on('click', '.link--openmenu', function(event) {
+        event.preventDefault();
+        /* Act on the event */
+        if ($(this).parents('.section-header').hasClass('invert')) {
+            $(this).parents('.section-header').toggleClass('open');
+        } else {
+            $(this).parents('.section-header').toggleClass('open invert');
+        }
+        
+    });
+
+
 }
 
 
@@ -273,17 +327,167 @@ $('body').on('click', '.save-content__tabs .link--tabs', function(event) {
     /* Act on the event */
 });
 
+
+
 $('body').on('click', '.contacts-tabs__head .link--tabs', function(event) {
     event.preventDefault();
     $(this).addClass('active').siblings().removeClass('active')
     $tabActive = $(this).attr('data-country')
     $('.contacts-tabs__item').removeClass('active')
     $('.contacts-tabs__item[data-country='+$tabActive+']').addClass('active')
-    /* Act on the event */
+
+    if (isMobile == true) {
+        startSlide = 0;
+        $('.contacts-tabs__item.active .map').hide()
+        $mapCount = $('.contacts-tabs__item.active').find('.map')
+        $($mapCount[startSlide]).show()
+        $('.contacts-navigation').attr('data-type', $tabActive)
+        $('.contacts-navigation .active').text('1')
+        $('.contacts-navigation .all').text($mapCount.length)
+    }
 });
 
 
 $('.select-field').styler()
+
+
+
+// Форма сотрудничества
+
+// Первый шаг
+   
+   $('body').on('click', '.link--diller', function(event) {
+       event.preventDefault();
+       $val = $(this).attr('data-val');
+
+       $('.link--diller').removeClass('active')
+       $(this).addClass('active')
+
+       $(this).parents('.steps-content__item').removeClass('required')
+       $('.link--next').attr('data-type', $(this).attr('data-type'))
+       $('.link--back').attr('data-type', $(this).attr('data-type'))
+       $('.link--next').removeClass('not-active')
+
+       /* Act on the event */
+   });
+
+   $('body').on('click', '.link--radio', function(event) {
+       event.preventDefault();
+       $val = $(this).attr('data-val');
+       $(this).addClass('active').siblings().removeClass('active')
+       /* Act on the event */
+   });
+
+
+   $('[data-block="sites"]').on('change', '.checkbox-site', function(event) {
+       // event.preventDefault();
+
+       if ($(this).attr('data-radio') == 'yes') {
+        $(this).parents('.steps-content__item').find('.inputs').addClass('active')
+       } else {
+        $(this).parents('.steps-content__item').find('.inputs').removeClass('active')
+       }
+
+       /* Act on the event */
+   });
+
+
+   $('[data-block="companies"]').on('change', '.checkbox-site', function(event) {
+       // event.preventDefault();
+
+       if ($(this).attr('data-radio') == 'yes') {
+        $(this).parents('.steps-content__item').find('.companies').show()
+       } else {
+        $(this).parents('.steps-content__item').find('.companies').hide()
+       }
+
+       /* Act on the event */
+   });
+
+   $('[data-block="office"]').on('change', '.checkbox-site', function(event) {
+       // event.preventDefault();
+
+       if ($(this).attr('data-radio') == 'yes') {
+        $(this).parents('.steps-content__item').find('.office').show()
+       } else {
+        $(this).parents('.steps-content__item').find('.office').hide()
+       }
+
+       /* Act on the event */
+   });
+
+   $('body').on('click', '.link--sites', function(event) {
+       event.preventDefault();
+
+       $html = '<div class="sites-field ">' +
+                   '<input type="text" name="site[]" placeholder="https://" class="field field--site">' +
+                    '<p class="error">' +
+                     '  Неверный формат' +
+                    '</p>' +
+                    '</div>';
+        $(this).parents('.steps-content__item').find('.inputs .sites').append($html)
+
+   });
+
+   $('.steps-content__navigation').on('click', '.link--back', function(event) {
+       event.preventDefault();
+
+       $activeStep = $('.steps-content__items').find('.steps-content__item:visible')
+       $activeNumb = $activeStep.attr('data-step');
+       $activeCheckbox = $(this).attr('data-type')
+
+       if ($activeNumb == 3) {
+            $nextStep = $('.steps-content__item[data-type='+$activeCheckbox+']')
+       } else {
+            $nextStep = $('.steps-content__item[data-step=1]')
+       }
+
+       // if (!$activeStep.hasClass('required')) {
+          $activeStep.fadeOut('fast', function() {
+              $nextStep.fadeIn('fast')
+              if ($nextStep.attr('data-step') == 1) {
+                 $('.link--back').addClass('not-visible not-active')
+              }
+             
+          });  
+       // }
+   });
+
+   $('.steps-content__navigation').on('click', '.link--next', function(event) {
+       event.preventDefault();
+
+       $activeStep = $('.steps-content__items').find('.steps-content__item:visible')
+       $activeNumb = $activeStep.attr('data-step');
+       $activeCheckbox = $(this).attr('data-type')
+
+       if ($activeNumb == 1) {
+            $nextStep = $('.steps-content__item[data-type='+$activeCheckbox+']')
+       } else {
+            $nextStep = $('.steps-content__item[data-step=3]')
+
+       }
+       // console.log($activeNumb)
+       if ($activeNumb == 2) {
+
+            $activeStep.fadeOut('fast', function() {
+                  $nextStep.fadeIn('fast')
+                  $('.link--back').removeClass('not-visible not-active')
+                  $('.link--next').addClass('not-active')
+                  $('.link--next').text($('.link--next').attr('data-laststep'))
+              }); 
+       } else {
+            if (!$activeStep.hasClass('required')) {
+              $activeStep.fadeOut('fast', function() {
+                  $nextStep.fadeIn('fast')
+                  $('.link--back').removeClass('not-visible not-active')
+                  $('.link--next').addClass('not-active')
+                  $('.link--next').text($('.link--next').attr('data-nexttext'))
+              });  
+           }
+       }
+
+       
+   });
 
 
 });
