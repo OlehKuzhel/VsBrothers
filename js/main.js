@@ -492,5 +492,32 @@ $('.select-field').styler()
        
    });
 
+    numberFirst = $('.main-footer__numb:nth-child(1) h4')
+    numberSecond = $('.main-footer__numb:nth-child(2) h4')
+    numberThird = $('.main-footer__numb:nth-child(3) h4')
+    numberFour = $('.main-footer__numb:nth-child(4) h4')
+
+    animateNumber(parseInt(numberFirst.text()), numberFirst)
+    animateNumber(parseInt(numberSecond.text()), numberSecond)
+    animateNumber(parseInt(numberThird.text()), numberThird)
+    animateNumber(parseInt(numberFour.text()), numberFour)
+
+        function animateNumber(number, element) {
+           $({numberValue: 0}).animate({numberValue: number}, {
+                duration: 2000, 
+                easing: "linear",
+                step: function(val) {
+                    element.text(Math.ceil(val))
+                },
+                complete: function (val) {
+                    if (element.parent().hasClass('plus-numb')) {
+                        element.append('+')
+                    }
+                }
+
+            }); 
+        }
+        
+
 
 });
