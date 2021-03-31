@@ -518,6 +518,13 @@ $('.select-field').styler()
             }); 
         }
 
+
+    $('body').on('click', '.link--next.send-ajax', function(event) {
+        event.preventDefault();
+        /* Act on the event */
+        $('.form-partner').trigger('submit')
+    });
+
         // Обработчик формы
     $('.form-partner').submit(function(event) {
         var _form = $(this);
@@ -551,7 +558,6 @@ $('.select-field').styler()
                 $('.steps-content__navigation').addClass('not-active')
                 $activeStep.fadeOut('fast', function() {
                   $nextStep.fadeIn('fast')
-                  
                 }); 
             }
         });
