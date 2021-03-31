@@ -517,6 +517,46 @@ $('.select-field').styler()
 
             }); 
         }
+
+        // Обработчик формы
+    $('.form-partner').submit(function(event) {
+        var _form = $(this);
+        var th = _form.serialize();
+        var form_url = _form.attr('action');
+        th = th + "&_token=" + $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            type: "POST",
+            url: form_url,
+            data: th,
+            success: function(data) {
+                setTimeout(function() {
+                    _form.trigger("reset");
+                }, 3000);
+                $activeStep = $('.steps-content__items').find('.steps-content__item:visible')
+                $nextStep = $('.steps-content__item[data-step=4]')
+                $nextStep.find('.success').addClass('active')
+                $('.steps-content__navigation').addClass('not-active')
+                $activeStep.fadeOut('fast', function() {
+                  $nextStep.fadeIn('fast')
+                  
+                }); 
+                // setTimeout(function() {
+                    // $.fancybox.close();
+                // }, 15000)
+            },
+            error: function(data) {
+                $activeStep = $('.steps-content__items').find('.steps-content__item:visible')
+                $nextStep = $('.steps-content__item[data-step=4]')
+                $nextStep.find('.error').addClass('active')
+                $('.steps-content__navigation').addClass('not-active')
+                $activeStep.fadeOut('fast', function() {
+                  $nextStep.fadeIn('fast')
+                  
+                }); 
+            }
+        });
+        event.preventDefault();
+    });
         
 
 
