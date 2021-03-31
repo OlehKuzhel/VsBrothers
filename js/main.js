@@ -467,7 +467,7 @@ $('.select-field').styler()
             $nextStep = $('.steps-content__item[data-type='+$activeCheckbox+']')
        } else {
             $nextStep = $('.steps-content__item[data-step=3]')
-
+            $('.link--next').addClass('send-ajax')
        }
        // console.log($activeNumb)
        if ($activeNumb == 2) {
@@ -519,7 +519,7 @@ $('.select-field').styler()
         }
 
 
-    $('body').on('click', '.link--next.send-ajax', function(event) {
+    $('body').on('click', '.link--next.send-ajax:not(.not-active)', function(event) {
         event.preventDefault();
         /* Act on the event */
         $('.form-partner').trigger('submit')
