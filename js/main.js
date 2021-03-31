@@ -519,7 +519,8 @@ $('.select-field').styler()
         }
 
 
-    $('body').on('click', '.link--next.send-ajax:not(.not-active)', function(event) {
+    // $('body').on('click', '.link--next.send-ajax:not(.not-active)', function(event) {
+    $('body').on('click', '.link--next.send-ajax', function(event) {
         event.preventDefault();
         /* Act on the event */
         $('.form-partner').trigger('submit')
