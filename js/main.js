@@ -456,7 +456,7 @@ $('.select-field').styler()
        // }
    });
 
-   $('.steps-content__navigation').on('click', '.link--next', function(event) {
+   $('.steps-content__navigation').on('click', '.link--next:not(.send-ajax)', function(event) {
        event.preventDefault();
 
        $activeStep = $('.steps-content__items').find('.steps-content__item:visible')
