@@ -1113,7 +1113,7 @@
                            <div class="content-row">
                               <p class="p-label">В каком городе вы планируете вести бизнес?*</p>
                               <div class="content-row__field">
-                                 <select id="city" name="city" data-placeholder=" " class="select-field">
+                                 <select id="city" name="city" data-placeholder=" " class="select-field required-field">
                                     <option></option>
                                     <option value="Киев">Киев</option>
                                     <option value="Киев">Киев</option>
@@ -1123,7 +1123,7 @@
                                  <label for="city">Укажите город</label>
                               </div>
                            </div>
-                           <div class="content-row" data-block="sites">
+                           <div class="content-row required-field" data-block="sites">
                               <p class="p-label">У вас есть сайт или страничка в социальных сетях?*</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
@@ -1177,7 +1177,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="content-row" data-block="companies">
+                           <div class="content-row required-field" data-block="companies">
                               <p class="p-label">Вы уже контактировали с другими транспортными компаниями в процессе вашей работы?*</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
@@ -1227,7 +1227,7 @@
                                  </select>
                               </div>
                            </div>
-                           <div class="content-row" data-block="office">
+                           <div class="content-row required-field" data-block="office">
                               <p class="p-label">У вас есть офис?*</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
@@ -1262,7 +1262,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="content-row" data-block="sites">
+                           <div class="content-row required-field" data-block="sites">
                               <p class="p-label">У вас есть сайт или страничка в социальных сетях?*</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
@@ -1315,7 +1315,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="content-row" data-block="companies">
+                           <div class="content-row required-field" data-block="companies">
                               <p class="p-label">Вы уже контактировали с другими транспортными компаниями в процессе вашей работы?*</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
@@ -1350,7 +1350,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="content-row">
+                           <div class="content-row required-field">
                               <p class="p-label">Какой объем ваших перевозок в месяц?*</p>
                               <div class="content-row__weight">
                                  <a href="#" class="link link--radio" data-val="До 5">
@@ -1440,14 +1440,14 @@
                            <div class="content-row">
                               <p class="p-label">Имя*</p>
                               <div class="content-row__field">
-                                 <input type="text" name="name" id="name" class="field field--steps">
+                                 <input type="text" name="name" id="name" class="field field--steps required-field">
                                  <label for="name">Укажите ваше имя</label>
                               </div>
                            </div>
                            <div class="content-row">
                               <p class="p-label"> Электронная почта*</p>
                               <div class="content-row__field ">
-                                 <input type="email" name="email" id="email" class="field field--steps">
+                                 <input type="email" name="email" id="email" class="field field--steps required-field">
                                  <label for="email">Укажите ваш email</label>
                                  <p class="error">Неверный формат</p>
                               </div>
@@ -1455,7 +1455,7 @@
                            <div class="content-row">
                               <p class="p-label">Ваш город*</p>
                               <div class="content-row__field">
-                                 <select id="client-city" name="client-city" data-placeholder=" " class="select-field">
+                                 <select id="client-city" name="client-city" data-placeholder=" " class="select-field required-field">
                                     <option></option>
                                     <option value="Киев">Киев</option>
                                     <option value="Киев">Киев</option>
@@ -1468,7 +1468,7 @@
                            <div class="content-row">
                               <p class="p-label">Телефон*</p>
                               <div class="content-row__field ">
-                                 <input type="tel" name="phone" id="phone" class="field field--steps phone-check" placeholder="+ 38 (0- -) - -   - -   - - -">
+                                 <input type="tel" name="phone" id="phone" class="field field--steps phone-check required-field" placeholder="+ 38 (0- -) - -   - -   - - -">
                                  
                                  <p class="error">Неверный формат</p>
                               </div>
@@ -1506,7 +1506,7 @@
                               </div>
                               <p class="p-label">Ошибка!</p>
                               <p>Что-то пошло не так. Попробуйте заполнить<br> форму заново или позвоните нам.</p>
-                              <a href="#" class="btn btn--start">Заполнить заново</a>
+                              <a href="#" class="btn btn--start repeat-form">Заполнить заново</a>
                               <a href="tel:+380443344434" class="link link--phonesteps">Позвонить +380 (44) 334 44 34</a>
                            </div>
                         </div>
@@ -1522,37 +1522,41 @@
                      <a href="#" class="link link--next not-active" data-type="" data-laststep="Отправить" data-nexttext="Дальше" data-tooltip="для перехода далее нужно заполнить отмеченые звездочкой * поля">Дальше</a>
                   </div>
                   <div class="steps-content__form">
-                    <form class="form-partner">
-                      <!-- Поле "О вас" -->
-                      <input type="hidden" name="partner-about">
-                      <!-- Поле "В каком городе вы планируете вести бизнес?" -->
-                      <input type="hidden" name="partner-businesscity">
-                      <!-- Поле "Сколько лет вы уже являетесь дилером?" -->
-                      <input type="hidden" name="partner-dileryears">
-                      <!-- Чекбокс "У вас есть офис?*" -->
-                      <input type="hidden" name="partner-office">
-                      <!-- Поле "Адресс офиса" -->
-                      <input type="hidden" name="partner-officeaddress">
-                      <!-- Чекбокс "У вас есть сайт или страничка в социальных сетях?" -->
-                      <input type="hidden" name="partner-social">
-                      <!-- Поле "Ссылки на страницы через ','" -->
-                      <input type="hidden" name="partner-sociallinks">
-                      <!-- Чекбокс "Вы уже контактировали с другими транспортными компаниями в процессе вашей работы?" -->
-                      <input type="hidden" name="partner-contacts">
-                      <!-- Поле "Названия компаний через ','" -->
-                      <input type="hidden" name="partner-contactsnames">
-                      <!-- Поле "Какой объем ваших перевозок в месяц?" -->
-                      <input type="hidden" name="partner-countcar">
-                      <!-- Поле "Имя" -->
-                      <input type="hidden" name="partner-name">
-                      <!-- Поле "Имейл" -->
-                      <input type="hidden" name="partner-email">
-                      <!-- Поле "Город" -->
-                      <input type="hidden" name="partner-city">
-                      <!-- Поле "Телефон"" -->
-                      <input type="hidden" name="partner-phone">
-                      <!-- Поле "Впросы и пожелания" -->
-                      <input type="hidden" name="partner-question">
+                    <form class="form-partner" action="https://vslaravel.digitize.site/send_form">
+                        
+                        <input value="eKd0DoAUM1eDsxoush8kBhzKLuzScZWrow9wHNCQ" type="hidden">
+                        <!-- Поле "Поле что бы понимать что выбрал клиент только с id что бы в обработчике можно было провреку сделать и не отправлять лишние поля new или old" -->
+                        <input type="hidden" name="partner_about_id">
+                        <!-- Поле "О вас" -->
+                        <input type="hidden" name="partner_about">
+                        <!-- Поле "В каком городе вы планируете вести бизнес?" -->
+                        <input type="hidden" name="partner_businesscity">
+                        <!-- Поле "Сколько лет вы уже являетесь дилером?" -->
+                        <input type="hidden" name="partner_dileryears" value="1">
+                        <!-- Чекбокс "У вас есть офис?*" -->
+                        <input type="hidden" name="partner_office">
+                        <!-- Поле "Адресс офиса" -->
+                        <input type="hidden" name="partner_officeaddress">
+                        <!-- Чекбокс "У вас есть сайт или страничка в социальных сетях?" -->
+                        <input type="hidden" name="partner_social">
+                        <!-- Поле "Ссылки на страницы через ','" -->
+                        <input type="hidden" name="partner_sociallinks">
+                        <!-- Чекбокс "Вы уже контактировали с другими транспортными компаниями в процессе вашей работы?" -->
+                        <input type="hidden" name="partner_contacts">
+                        <!-- Поле "Названия компаний через ','" -->
+                        <input type="hidden" name="partner_contactsnames">
+                        <!-- Поле "Какой объем ваших перевозок в месяц?" -->
+                        <input type="hidden" name="partner_countcar">
+                        <!-- Поле "Имя" -->
+                        <input type="hidden" name="partner_name">
+                        <!-- Поле "Имейл" -->
+                        <input type="hidden" name="partner_email">
+                        <!-- Поле "Город" -->
+                        <input type="hidden" name="partner_city">
+                        <!-- Поле "Телефон"" -->
+                        <input type="hidden" name="partner_phone">
+                        <!-- Поле "Впросы и пожелания" -->
+                        <input type="hidden" name="partner_question">
                     </form>
                   </div>
                </div>
