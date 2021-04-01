@@ -6087,7 +6087,7 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-services .services-item .icon { max-width: 10rem; width: 100%; height: 10rem; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; margin-bottom: 1rem; margin-left: auto; margin-right: auto; }
 
-.section-services .services-item .icon svg { max-width: 100%; width: auto; height: auto; max-height: 100%; }
+.section-services .services-item .icon svg { max-width: 100%; width: auto; height: 100%; max-height: 100%; }
 
 .section-services .services-item p { text-align: center; font-weight: 600; color: #3367B1; line-height: 2.4rem; }
 
