@@ -22,8 +22,26 @@ $(window).scroll(function() {
             $('header').removeClass('invert');
         }
     }
-    
 });
+
+$("body").on("click",".scrollbtn", function (event) {
+        //отменяем стандартную обработку нажатия по ссылке
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top - $('.section-header').height();
+        if (isMobile == true) {
+            $('.link--openmenu').trigger('click')
+            top = $(id).offset().top - $('.section-header').height() - 15;
+        }
+
+        
+        
+        $('body,html').animate({scrollTop: top}, 1500);
+
+
+    });
+
+
 var loginBtn = $('.btn--primary.login'),
     formLogin = $('.form-login');
 
