@@ -559,7 +559,7 @@ $('.select-field').styler()
                 $(el).removeClass('active filled')
             });
             $('.steps-progress__item:nth-child(1)').addClass('active')
-            // $('.link--next').removeClass('not-active')
+            $('.link--next').removeClass('send-ajax')
         }); 
 
        /* Act on the event */
@@ -698,6 +698,7 @@ $('.select-field').styler()
 
               }
               $('.link--next').removeClass('not-active')
+              $('.link--next').removeClass('send-ajax')
              
           });  
        // }
