@@ -14,7 +14,7 @@ var isMobile = false;
 
 $(window).scroll(function() {
     var height = $(window).scrollTop(),
-        heightSection = $('.section-main').height();
+        heightSection = $('.section-main').height() - 200;
     if (!$('header').hasClass('open')) {
         if(height > heightSection){
             $('header').addClass('invert');
