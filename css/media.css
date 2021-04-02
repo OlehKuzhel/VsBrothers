@@ -143,7 +143,7 @@
   .section-auctions .auctions-logos .link--auctions svg { bottom: 1rem; display: none; }
   .section-contacts { padding: 4rem 0 4rem 0; }
   .section-contacts .contacts-tabs__item { grid-template-columns: 1fr 1fr; grid-row-gap: 4rem; grid-column-gap: 2rem; }
-  .section-invoice { padding: 8rem 0 6rem 0; -webkit-background-size: 55rem 100%; background-size: 55rem 100%; }
+  .section-invoice { padding: 8rem 0 6rem 0; background-position: center center; -webkit-background-size: cover; background-size: cover; }
   .section-invoice .invoice .btn { margin-top: 2rem; }
   .section-footer { padding: 4rem 0 1.5rem 0; }
   .section-footer .footer-terms .link { font-size: 1rem; line-height: 1.6rem; }
