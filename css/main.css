@@ -6217,6 +6217,8 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-auctions .auctions-logos .link--auctions { width: 100%; height: 16rem; background: #F7F7FF; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }
 
+.section-auctions .auctions-logos .link--auctions:empty { pointer-events: none; }
+
 .section-auctions .auctions-logos .link--auctions img { max-width: 100%; width: 100%; -webkit-filter: grayscale(1); filter: grayscale(1); -webkit-transition: 0.24s linear; -o-transition: 0.24s linear; transition: 0.24s linear; }
 
 .section-auctions .auctions-logos .link--auctions svg { position: absolute; bottom: 2rem; left: 45%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%); display: block; width: 1.6rem; height: 1.6rem; -webkit-transition: 0.24s linear; -o-transition: 0.24s linear; transition: 0.24s linear; opacity: 0; pointer-events: none; }
@@ -6418,6 +6420,20 @@ input.checkbox-site[data-radio="yes"]:checked + label .icon svg path { fill: #0A
     r: 5; }
   to { r: 25;
     fill-opacity: 0; } }
+
+.cities { display: none; }
+
+.autocomplete-suggestions { border: 1px solid #000; background: #FFF; overflow: auto; margin-top: 0.5rem; max-width: 100%; }
+
+.autocomplete-suggestions strong { font-weight: normal; color: #3367B1; }
+
+.autocomplete-suggestion { padding: 1.2rem 1.6rem 1.2rem 1.6rem; white-space: nowrap; overflow: hidden; cursor: pointer; font-family: "Manrope", sans-serif; font-weight: 400; font-size: 1.4rem; }
+
+.autocomplete-selected { background: #F0F0F0; }
+
+.autocomplete-group { padding: 1.2rem 1.6rem 1.2rem 1.6rem; }
+
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
 
 .fancybox-container .fancybox-bg { background: #000; opacity: 0; }
 

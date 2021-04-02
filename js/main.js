@@ -398,22 +398,44 @@ $('.select-field').styler()
        /* Act on the event */
    });
 
-   $('body').on('change', 'select[name=city]', function(event) {
+   $('body').on('change', 'input[name=city]', function(event) {
        // event.preventDefault();
        $val = $(this).val();
        $('[name=partner_businesscity]').val($val)
 
        if ($val != '') {
+            $(this).addClass('filled')
             $(this).removeClass('required-field')
-            $('#city-styler').removeClass('required-field')
+            // $('#city-styler').removeClass('required-field')
        } else {
             $(this).addClass('required-field')
-            $('#city-styler').addClass('required-field')
+            $(this).removeClass('filled')
+            // $('#city-styler').addClass('required-field')
        }
        checkFields($(this))
 
        /* Act on the event */
    });
+
+   var $cities = [],
+        $citiesBlock =  $('.cities').find('div');
+       $.each($citiesBlock, function(index, el) {
+           
+           $cities.push($(el).attr('data-value'))
+       });
+
+    $('#city').autocomplete({
+        appendTo: $('[name="city"]').parent(),
+        lookup: $cities,
+        maxHeight: 150,
+        lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
+            return suggestion.value.toLowerCase().indexOf(queryLowerCase) === 0;
+        },
+        onSelect: function(suggestion) {
+            $(this).trigger('change')
+            // checkFields($(this))
+        },
+    });
 
    $('body').on('change', 'select[name=years]', function(event) {
        // event.preventDefault();
@@ -484,22 +506,34 @@ $('.select-field').styler()
        checkFields($(this))
        /* Act on the event */
    });
-   $('body').on('change', 'select[name=client-city]', function(event) {
+   $('body').on('change', 'input[name=client-city]', function(event) {
        // event.preventDefault();
        $val = $(this).val();
        $('[name=partner_city]').val($val)
 
-       if ($val != '') {
+      if ($val != '') {
+            $(this).addClass('filled')
             $(this).removeClass('required-field')
-            $('#client-city-styler').removeClass('required-field')
        } else {
             $(this).addClass('required-field')
-            $('#client-city-styler').addClass('required-field')
+            $(this).removeClass('filled')
        }
        checkFields($(this))
-
-       /* Act on the event */
    });
+
+   $('#client-city').autocomplete({
+        appendTo: $('[name="client-city"]').parent(),
+        lookup: $cities,
+        maxHeight: 150,
+        lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
+            return suggestion.value.toLowerCase().indexOf(queryLowerCase) === 0;
+        },
+        onSelect: function(suggestion) {
+            $(this).trigger('change')
+        },
+    });
+
+
    $('body').on('change', 'input[name=office]', function(event) {
        // event.preventDefault();
        $val = $(this).val();
