@@ -519,7 +519,7 @@ $('.select-field').styler()
        /* Act on the event */
    });
 
-   $('body').on('change', 'input[name=phone]', function(event) {
+   $('body').on('change', 'input[name=phone_notauto]', function(event) {
        // event.preventDefault();
        $val = $(this).val();
        
