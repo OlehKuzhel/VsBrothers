@@ -24,7 +24,7 @@ $(window).scroll(function() {
     }
 });
 
-$("header:not(.page), footer:not(.page)").on("click",".scrollbtn", function (event) {
+$("header, footer").on("click",".scrollbtn", function (event) {
         //отменяем стандартную обработку нажатия по ссылке
         event.preventDefault();
         var id = $(this).attr('href');
@@ -40,11 +40,6 @@ $("header:not(.page), footer:not(.page)").on("click",".scrollbtn", function (eve
             $('body,html').animate({scrollTop: top}, 1500);
         }
 
-
-        // var id  = $(this).attr('href'),
-         
-        
-        
 
 
     });
