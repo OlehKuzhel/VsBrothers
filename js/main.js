@@ -24,17 +24,27 @@ $(window).scroll(function() {
     }
 });
 
-$("header:not(.page), .footer:not(.page)").on("click",".scrollbtn", function (event) {
+$("header:not(.page), footer:not(.page)").on("click",".scrollbtn", function (event) {
         //отменяем стандартную обработку нажатия по ссылке
         event.preventDefault();
-        var id  = $(this).attr('href'),
-            top = $(id).offset().top - $('.section-header').height();
-        if (isMobile == true) {
-            $('.link--openmenu').trigger('click')
-            top = $(id).offset().top - $('.section-header').height() - 15;
+        var id = $(this).attr('href');
+        console.log(location.pathname)
+        if (location.pathname!='/') {
+            location.href = '/'+id
+        } else {
+            var top = $(id).offset().top - $('.section-header').height();
+            if (isMobile == true) {
+                $('.link--openmenu').trigger('click')
+                top = $(id).offset().top - $('.section-header').height() - 15;
+            }
+            $('body,html').animate({scrollTop: top}, 1500);
         }
+
+
+        // var id  = $(this).attr('href'),
+         
         
-        $('body,html').animate({scrollTop: top}, 1500);
+        
 
 
     });
