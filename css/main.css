@@ -6035,13 +6035,17 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-terminal .terminal-visual { max-width: 73.5rem; width: 100%; height: auto; position: relative; }
 
-.section-terminal .terminal-visual svg { width: 100%; height: 100%; }
+.section-terminal .terminal-visual svg { width: 100%; height: 100%; display: block; }
 
 .section-terminal .terminal-visual svg circle { position: relative; }
 
+.section-terminal .terminal-visual svg circle.pulse { fill: #3367B1; fill-opacity: .2; shape-rendering: geometricPrecision; -webkit-transform-origin: center center; -ms-transform-origin: center center; transform-origin: center center; }
+
 .section-terminal .terminal-visual svg circle:hover { cursor: pointer; }
 
-.section-terminal .terminal-visual svg circle.pulse { fill: #3367B1; fill-opacity: .2; -webkit-transform-origin: center center; -ms-transform-origin: center center; transform-origin: center center; -webkit-animation-duration: 2s; animation-duration: 2s; -webkit-animation-name: pulse; animation-name: pulse; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; }
+.section-terminal .terminal-visual svg circle.tooltip-circle { -webkit-transition: 0.24s linear; -o-transition: 0.24s linear; transition: 0.24s linear; }
+
+.section-terminal .terminal-visual svg circle.tooltip-circle:hover { opacity: .4; }
 
 .section-save { padding: 8rem 0; }
 
@@ -6193,7 +6197,7 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-cabinet .cabinet-slider { width: 100%; height: 80vh; min-height: 70rem; }
 
-.section-cabinet .cabinet-slide img { width: auto; height: 100%; -webkit-transform: translateX(-10rem); -ms-transform: translateX(-10rem); transform: translateX(-10rem); }
+.section-cabinet .cabinet-slide img { width: auto; height: 100%; -webkit-transform: translateX(-5rem); -ms-transform: translateX(-5rem); transform: translateX(-5rem); }
 
 .section-cabinet .cabinet-mockups { max-width: 50vw; width: 100%; z-index: 3; }
 
@@ -6231,19 +6235,21 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-auctions .auctions-logos .link--auctions:nth-child(1) img { max-width: 13.2rem; }
 
-.section-auctions .auctions-logos .link--auctions:nth-child(2) img { max-width: 13.2rem; }
+.section-auctions .auctions-logos .link--auctions:nth-child(2) img { max-width: 7.8rem; }
 
 .section-auctions .auctions-logos .link--auctions:nth-child(3) img { max-width: 13.2rem; }
 
 .section-auctions .auctions-logos .link--auctions:nth-child(4) img { max-width: 13.2rem; }
 
-.section-auctions .auctions-logos .link--auctions:nth-child(5) img { max-width: 7.8rem; }
+.section-auctions .auctions-logos .link--auctions:nth-child(5) img { max-width: 13.2rem; }
 
 .section-auctions .auctions-logos .link--auctions:nth-child(6) img { max-width: 13.2rem; }
 
 .section-auctions .auctions-logos .link--auctions:nth-child(7) img { max-width: 13.2rem; }
 
 .section-auctions .auctions-logos .link--auctions:nth-child(8) img { max-width: 13.2rem; }
+
+.section-auctions .auctions-logos .link--auctions:nth-child(9) img { max-width: 14rem; }
 
 .section-auctions .auctions-content { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: start; -webkit-align-items: flex-start; -ms-flex-align: start; align-items: flex-start; -webkit-box-pack: start; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; max-width: 62.5rem; width: 100%; }
 

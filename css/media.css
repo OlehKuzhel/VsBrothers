@@ -307,15 +307,15 @@
   .section-auctions .auctions-content p + p { margin-top: 0; }
   .section-auctions .auctions-logos { grid-template-columns: 1fr 1fr; grid-gap: 1.6rem; margin-top: 2.4rem; }
   .section-auctions .auctions-logos .link--auctions { height: 7.5rem; }
-  .section-auctions .auctions-logos .link--auctions:last-child { display: none; }
   .section-auctions .auctions-logos .link--auctions:nth-child(1) img { max-width: 8rem; }
-  .section-auctions .auctions-logos .link--auctions:nth-child(2) img { max-width: 8rem; }
+  .section-auctions .auctions-logos .link--auctions:nth-child(2) img { max-width: 5rem; }
   .section-auctions .auctions-logos .link--auctions:nth-child(3) img { max-width: 8rem; }
   .section-auctions .auctions-logos .link--auctions:nth-child(4) img { max-width: 8rem; }
-  .section-auctions .auctions-logos .link--auctions:nth-child(5) img { max-width: 5rem; }
+  .section-auctions .auctions-logos .link--auctions:nth-child(5) img { max-width: 8rem; }
   .section-auctions .auctions-logos .link--auctions:nth-child(6) img { max-width: 8rem; }
   .section-auctions .auctions-logos .link--auctions:nth-child(7) img { max-width: 8rem; }
   .section-auctions .auctions-logos .link--auctions:nth-child(8) img { max-width: 8rem; }
+  .section-auctions .auctions-logos .link--auctions:nth-child(9) img { max-width: 12rem; }
   .section-contacts { padding: 3rem 0 6rem 0; }
   .section-contacts .contacts-navigation { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; max-width: 13rem; margin-top: 3.2rem; }
   .section-contacts .contacts-title p { font-size: 1rem; line-height: 1.6rem; margin-top: .8rem; }
