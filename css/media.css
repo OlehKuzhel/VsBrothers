@@ -9,9 +9,11 @@
 @media only screen and (max-width: 1300px) { /**/
   .section-cabinet .cabinet-slider { height: 55rem; } }
 
-@media only screen and (max-width: 1200px) { /**/ }
+@media only screen and (max-width: 1200px) { /**/
+  html { font-size: 8px; } }
 
-@media only screen and (max-width: 1100px) { /**/ }
+@media only screen and (max-width: 1100px) { /**/
+  html { font-size: 7.5px; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) { /**/ }
