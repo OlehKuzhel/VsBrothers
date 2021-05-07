@@ -16,7 +16,8 @@
   html { font-size: 7.5px; } }
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) { /**/ }
+@media only screen and (max-width: 992px) { /**/
+  html { font-size: 6.5px; } }
 
 @media only screen and (max-width: 768px) { html { font-size: 10px; }
   .cookie-save { max-width: 38rem; }
@@ -115,6 +116,7 @@
   .section-support .support { -webkit-box-orient: vertical; -webkit-box-direction: reverse; -webkit-flex-direction: column-reverse; -ms-flex-direction: column-reverse; flex-direction: column-reverse; }
   .section-support .support-visual { max-width: 100%; height: 54rem; margin-top: 6rem; }
   .section-support .support-visual.video { max-width: 100%; height: 39rem; }
+  .section-support .support-visual img { -o-object-fit: cover; object-fit: cover; }
   .section-support .support-content { max-width: 100%; }
   .section-support .support-content h2 br { display: none; }
   .section-support .support-content__items { margin-top: 4rem; grid-row-gap: 3rem; grid-column-gap: 6rem; }

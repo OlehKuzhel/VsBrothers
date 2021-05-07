@@ -323,7 +323,7 @@ if (isMobile == false) {
     $('body').on('click', '.link--openmenu', function(event) {
         event.preventDefault();
         /* Act on the event */
-        if ($(this).parents('.section-header').hasClass('invert page')) {
+        if ($(this).parents('.section-header').hasClass('invert') || $(this).parents('.section-header').hasClass('page')) {
             $(this).parents('.section-header').toggleClass('open');
         } else {
             $(this).parents('.section-header').toggleClass('open invert');
