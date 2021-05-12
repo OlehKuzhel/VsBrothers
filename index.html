@@ -1129,13 +1129,13 @@
                      </div>
                      <div class="steps-content__item required" data-step="2" data-type="new">
                         <div class="content">
-                           <div class="content-row">
+                           <!-- <div class="content-row">
                               <p class="p-label">В каком городе вы планируете вести бизнес?*</p>
                               <div class="content-row__field">
                                  <input type="text" name="city" id="city" class="field field--steps required-field">
                                  <label for="city">Укажите город</label>
                               </div>
-                           </div>
+                           </div> -->
                            <div class="content-row required-field" data-block="sites">
                               <p class="p-label">У вас есть сайт или страничка в социальных сетях?*</p>
                               <div class="content-row__items">
@@ -1180,17 +1180,24 @@
                                           </p>
                                        </div>
                                     </div>
-                                    <a href="#" class="link link--sites">
+                                    <div class="sites-links">
+                                       <a href="#" class="link link--sites sites-plus">
+                                          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.85534 4.43359H0.145508V5.56641H9.85534V4.43359Z" fill="#686C78"/>
+                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M5.56641 0.145153L5.56641 9.85498H4.43359L4.43359 0.145153H5.56641Z" fill="#686C78"/>
+                                          </svg>
+                                       </a>
+                                    <a href="#" class="link link--sites sites-minus">
                                        <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M9.85534 4.43359H0.145508V5.56641H9.85534V4.43359Z" fill="#686C78"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.56641 0.145153L5.56641 9.85498H4.43359L4.43359 0.145153H5.56641Z" fill="#686C78"/>
                                        </svg>
                                     </a>
+                                    </div>
                                  </div>
                               </div>
                            </div>
                            <div class="content-row required-field" data-block="companies">
-                              <p class="p-label">Вы уже контактировали с другими транспортными компаниями в процессе вашей работы?*</p>
+                              <p class="p-label">Вы уже имели опыт работы с другими транспортными компаниями?*</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
                                     <div class="checkboxes-item">
@@ -1236,11 +1243,12 @@
                                     <option value="2">2 года</option>
                                     <option value="3">3 года</option>
                                     <option value="4">4 года</option>
+                                    <option value="5+">5+ года</option>
                                  </select>
                               </div>
                            </div>
                            <div class="content-row required-field" data-block="office">
-                              <p class="p-label">У вас есть офис?*</p>
+                              <p class="p-label">У вас есть офис/сотрудники?*</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
                                     <div class="checkboxes-item">
@@ -1318,17 +1326,25 @@
                                           </p>
                                        </div>
                                     </div>
-                                    <a href="#" class="link link--sites">
+                                    <div class="sites-links">
+                                       <a href="#" class="link link--sites sites-plus">
+                                          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.85534 4.43359H0.145508V5.56641H9.85534V4.43359Z" fill="#686C78"/>
+                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M5.56641 0.145153L5.56641 9.85498H4.43359L4.43359 0.145153H5.56641Z" fill="#686C78"/>
+                                          </svg>
+                                       </a>
+                                    <a href="#" class="link link--sites sites-minus">
                                        <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M9.85534 4.43359H0.145508V5.56641H9.85534V4.43359Z" fill="#686C78"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.56641 0.145153L5.56641 9.85498H4.43359L4.43359 0.145153H5.56641Z" fill="#686C78"/>
                                        </svg>
                                     </a>
+                                    </div>
+                                    
                                  </div>
                               </div>
                            </div>
                            <div class="content-row required-field" data-block="companies">
-                              <p class="p-label">Вы уже контактировали с другими транспортными компаниями в процессе вашей работы?*</p>
+                              <p class="p-label">Вы контактировали с другими транспортными компаниями?*</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
                                     <div class="checkboxes-item">
@@ -1363,7 +1379,7 @@
                               </div>
                            </div>
                            <div class="content-row required-field">
-                              <p class="p-label">Какой объем ваших перевозок в месяц?*</p>
+                              <p class="p-label">Какое количество автомобилей покупаете в среднем ежемесячно?*</p>
                               <div class="content-row__weight">
                                  <a href="#" class="link link--radio" data-val="До 5">
                                     <span class="icon">
@@ -1474,8 +1490,19 @@
                            <div class="content-row">
                               <p class="p-label">Телефон*</p>
                               <div class="content-row__field ">
-                                 <input type="tel" name="phone_notauto" id="phone" autocomplete="off" class="field field--steps phone-check required-field" placeholder="+ 38 (0- -) - -   - -   - - -">
+                                 <input type="tel" name="phone_notauto" id="phone" autocomplete="off" class="field field--steps phone-check required-field" placeholder="Укажите телефон">
                                  <p class="error">Неверный формат</p>
+                              </div>
+                              <div class="content-row__social">
+                                 <a href="#" data-check="Viber" class="link link--tg">
+                                    <i class="fab fa-viber"></i>
+                                 </a>
+                                 <a href="#" data-check="Whatsapp" class="link link--tg">
+                                    <i class="fab fa-whatsapp"></i>
+                                 </a>
+                                 <a href="#" data-check="Telegram" class="link link--tg">
+                                    <i class="fab fa-telegram-plane"></i>
+                                 </a>
                               </div>
                            </div>
                            <div class="content-row" data-block="question">
@@ -1534,7 +1561,7 @@
                         <!-- Поле "О вас" -->
                         <input type="hidden" name="partner_about">
                         <!-- Поле "В каком городе вы планируете вести бизнес?" -->
-                        <input type="hidden" name="partner_businesscity">
+                        <!-- <input type="hidden" name="partner_businesscity"> -->
                         <!-- Поле "Сколько лет вы уже являетесь дилером?" -->
                         <input type="hidden" name="partner_dileryears" value="1">
                         <!-- Чекбокс "У вас есть офис?*" -->
@@ -1559,7 +1586,9 @@
                         <input type="hidden" name="partner_city">
                         <!-- Поле "Телефон"" -->
                         <input type="hidden" name="partner_phone">
-                        <!-- Поле "Впросы и пожелания" -->
+                        <!-- Поле "Способы связи" -->
+                        <input type="hidden" name="partner_connection">
+                        <!-- Поле "Вопросы и пожелания" -->
                         <input type="hidden" name="partner_question">
                      </form>
                   </div>

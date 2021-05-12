@@ -245,7 +245,7 @@ $('body').on('click', '.link--service', function(event) {
     
 
     $.each($servicesItems, function(index, el) {
-        $(el).toggle()
+        $(el).toggleClass('show')
     });
 
 
@@ -556,6 +556,21 @@ $('.select-field').styler()
        /* Act on the event */
    });
 
+   $('body').on('click', '.content-row__social .link', function(event) {
+       event.preventDefault();
+       /* Act on the event */
+       $(this).toggleClass('active');
+
+       $sitesBlock = $(this).parents('.content-row__social').find('.link.active');
+       var out=[];
+       $.each($sitesBlock, function(index, el) {
+           out.push($(el).attr('data-check'))
+       });
+
+       $('[name=partner_connection]').val(out.toString())
+
+   });
+
    $('body').on('change', 'input[name=phone_notauto]', function(event) {
        // event.preventDefault();
        $val = $(this).val();
@@ -575,6 +590,13 @@ $('.select-field').styler()
 
    
    $('.sites').on('change', 'input[type=text]', function(event) {
+        $val = $(this).val();
+
+        if ($val.length > 0) {
+         $(this).addClass('filled')
+        } else {
+         $(this).removeClass('filled')
+        }
 
        $sitesBlock = $(this).parents('.sites').find('input[type=text]');
 
@@ -583,6 +605,9 @@ $('.select-field').styler()
        $.each($arrInput, function(index, el) {
            out.push(el.value)
        });
+
+        
+       
 
 
        $('[name=partner_sociallinks]').val(out.toString())
@@ -719,15 +744,32 @@ $('.select-field').styler()
    $('body').on('click', '.link--sites', function(event) {
        event.preventDefault();
 
-       $html = '<div class="sites-field ">' +
+       
+       if ($(this).hasClass('sites-plus')) {
+            $html = '<div class="sites-field ">' +
                    '<input type="text" name="site[]" placeholder="https://" class="field field--site">' +
                     '<p class="error">' +
                      '  Неверный формат' +
                     '</p>' +
                     '</div>';
-        $(this).parents('.steps-content__item').find('.inputs .sites').append($html)
+            $(this).parents('.steps-content__item').find('.inputs .sites').append($html)
+       } else {
+            $(this).parents('.steps-content__item').find('.inputs .sites .sites-field:last-child').remove()
+       }
+
+       $sitesLenght = $(this).parents('.steps-content__item').find('.inputs .sites .sites-field').length
+       if ($sitesLenght > 2) {
+            $(this).parents('.steps-content__item').find('.link--sites.sites-minus').addClass('active')
+       } else {
+            $(this).parents('.steps-content__item').find('.link--sites.sites-minus').removeClass('active')
+       }
+
+       
 
    });
+
+   
+
 
    $('.steps-content__navigation').on('click', '.link--back', function(event) {
        event.preventDefault();
@@ -883,15 +925,7 @@ $('.select-field').styler()
     });
 
 
-    $('.phone-check').mask('+38 (000) 000 00 00').focus(function(event) {
-        if ($(this).val() == '') {
-            $(this).val('+38 (0')
-        }
-    }).blur(function(event) {
-        if ($(this).val() == '+38 (0') {
-            $(this).val('')
-        }
-    });
+    $('.phone-check').mask('000000000000000', {'translation': {0: {pattern: /^\+?[0-9\s\+\(\)]+/}}})
 
     function checkFields(input) {
         $parent = input.parents('.steps-content__item')
