@@ -468,10 +468,14 @@ $('.select-field').styler()
        if ($val.length > 0) {
             $(this).addClass('filled')
             $('[name=partner_contactsnames]').val($val)
+            $(this).removeClass('required-field')
        } else {
+            $(this).addClass('required-field')
             $(this).removeClass('filled')
             $('[name=partner_contactsnames]').val('')
+
        }
+       checkFields($(this))
        /* Act on the event */
    });
 
@@ -741,28 +745,37 @@ $('.select-field').styler()
        /* Act on the event */
    });
 
+   $('body').on('click', '.link--delete', function(event) {
+     event.preventDefault();
+
+     $(this).parents('.sites-field').remove()
+
+   })
+
    $('body').on('click', '.link--sites', function(event) {
        event.preventDefault();
 
        
-       if ($(this).hasClass('sites-plus')) {
+       
             $html = '<div class="sites-field ">' +
                    '<input type="text" name="site[]" placeholder="https://" class="field field--site">' +
                     '<p class="error">' +
                      '  Неверный формат' +
                     '</p>' +
+                    '<a href="#" class="link link--delete">'+
+                        '<svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.33-.001L1.163 7.164 2 8 9.165.835 8.33-.001z" fill="#FF3E32"/><path fill-rule="evenodd" clip-rule="evenodd" d="M1.67-.001l7.166 7.165L8 8 .835.835l.836-.836z" fill="#FF3E32"/></svg>'+
+                        '</a>'+
                     '</div>';
             $(this).parents('.steps-content__item').find('.inputs .sites').append($html)
-       } else {
-            $(this).parents('.steps-content__item').find('.inputs .sites .sites-field:last-child').remove()
-       }
+       
+            
 
-       $sitesLenght = $(this).parents('.steps-content__item').find('.inputs .sites .sites-field').length
-       if ($sitesLenght > 2) {
-            $(this).parents('.steps-content__item').find('.link--sites.sites-minus').addClass('active')
-       } else {
-            $(this).parents('.steps-content__item').find('.link--sites.sites-minus').removeClass('active')
-       }
+       // $sitesLenght = $(this).parents('.steps-content__item').find('.inputs .sites .sites-field').length
+       // if ($sitesLenght > 2) {
+       //      $(this).parents('.steps-content__item').find('.link--sites.sites-minus').addClass('active')
+       // } else {
+       //      $(this).parents('.steps-content__item').find('.link--sites.sites-minus').removeClass('active')
+       // }
 
        
 
