@@ -794,8 +794,8 @@ $('.select-field').styler()
        if ($activeNumb == 3) {
             $nextStep = $('.steps-content__item[data-type='+$activeCheckbox+']')
             $('.link--next').text($('.link--next').attr('data-nexttext'))
-            $('[name="name"]').val('').addClass('required-field')
-            checkFields($('[name="name"]'))
+            // $('[name="name"]').val('').addClass('required-field')
+            // checkFields($('[name="name"]'))
        } else {
             $nextStep = $('.steps-content__item[data-step=1]')
        }
@@ -807,8 +807,13 @@ $('.select-field').styler()
                  $('.link--back').addClass('not-visible not-active')
 
               }
-              $('.link--next').removeClass('not-active')
-              $('.link--next').removeClass('send-ajax')
+
+              $reqActive = $activeStep.find('.required-field').length
+              if ($reqActive == 0) {
+                $('.link--next').removeClass('not-active')
+                $('.link--next').removeClass('send-ajax')
+              }
+              
              
           });  
        // }
@@ -840,7 +845,12 @@ $('.select-field').styler()
                 $activeStep.fadeOut('fast', function() {
                       $nextStep.fadeIn('fast')
                       $('.link--back').removeClass('not-visible not-active')
-                      $('.link--next').addClass('not-active')
+                       $reqActive = $nextStep.find('.required-field').length
+                      if ($reqActive == 0) {
+                        $('.link--next').removeClass('not-active')
+                      } else {
+                        $('.link--next').addClass('not-active')
+                      }
                       $('.link--next').text($('.link--next').attr('data-laststep'))
                   }); 
            } else {
@@ -848,7 +858,16 @@ $('.select-field').styler()
                   $activeStep.fadeOut('fast', function() {
                       $nextStep.fadeIn('fast')
                       $('.link--back').removeClass('not-visible not-active')
-                      $('.link--next').addClass('not-active')
+
+
+                      $reqActive = $nextStep.find('.required-field').length
+                      if ($reqActive == 0) {
+                        $('.link--next').removeClass('not-active')
+                      } else {
+                        $('.link--next').addClass('not-active')
+                      }
+
+                      
                       $('.link--next').text($('.link--next').attr('data-nexttext'))
                   });  
                }
@@ -856,6 +875,8 @@ $('.select-field').styler()
        } else {
         $('.form-partner').trigger('submit')
        }
+
+
 
        
    });
