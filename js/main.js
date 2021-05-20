@@ -153,7 +153,9 @@ var sliderCabinet = new Swiper('.cabinet-slider', {
         },
         hideScrollbar: true,
         btnTpl: {
-            smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}"><span class="text">закрыть форму</span>' +
+            smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}"><span class="text">'
+            + close_form_translate_text +
+            '</span>' +
                 '<span class="icon"><svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.33-.001L1.163 7.164 2 8 9.165.835 8.33-.001z" fill="#686C78"/><path fill-rule="evenodd" clip-rule="evenodd" d="M1.67-.001l7.166 7.165L8 8 .835.835l.836-.836z" fill="#686C78"/></svg></span>' +
                 "</button>",
 
@@ -346,8 +348,8 @@ $('body').on('click', '.save-content__tabs .link--tabs', function(event) {
     $tabActive = $(this).attr('data-visible')
     $('.save-content__tab').hide()
     $('.save-content__tab[data-visible='+$tabActive+']').show()
-    $('.save-visual img').hide()
-    $('.save-visual img[data-visible='+$tabActive+']').show()
+    $('.save-visual [data-visible]').hide()
+    $('.save-visual [data-visible='+$tabActive+']').show()
     /* Act on the event */
 });
 
@@ -970,6 +972,17 @@ $('.select-field').styler()
             $('.link--next').removeClass('not-active')
         }
     }
+
+
+    $('#datepicker-cash').datepicker({
+    // Можно выбрать тольо даты, идущие за сегодняшним днем, включая сегодня
+        // minDate: new Date(),
+        inline: true,
+        selectOtherYears: false,
+        navTitles: {
+        days: 'MM'
+        }
+    })
         
 
 
