@@ -974,11 +974,67 @@ $('.select-field').styler()
     }
 
 
+    $.fn.datepicker.language['ru'] =  {
+        days: ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+        daysShort: ['Вос','Пон','Вто','Сре','Чет','Пят','Суб'],
+        daysMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+        months: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+        monthsShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+        today: 'Сегодня',
+        clear: 'Очистить',
+        dateFormat: 'dd.mm.yyyy',
+        timeFormat: 'hh:ii',
+        firstDay: 1
+    };
+
+    $.fn.datepicker.language['ua'] = {
+        days: ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четверг', 'П\'ятниця', 'Субота'],
+        daysShort: ['Нед', 'Пон', 'Вів', 'Сер', 'Чет', 'П\'я', 'Суб'],
+        daysMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        months: ['Січень','Лютий','Березень','Квітень','Травень','Червень', 'Липень','Серпень','Вересень','Жовтень','Листопад','Грудень'],
+        monthsShort: ['Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер', 'Лип', 'Сер', 'Вер', 'Жов', 'Лис', 'Гру'],
+        today: 'Сьгодні',
+        clear: 'Відміна',
+        dateFormat: 'dd/mm/yyyy',
+        timeFormat: 'hh:ii aa',
+        firstDay: 1
+    };
+
+    $.fn.datepicker.language['en'] = {
+        days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+        months: ['January','February','March','April','May','June', 'July','August','September','October','November','December'],
+        monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        today: 'Today',
+        clear: 'Clear',
+        dateFormat: 'mm/dd/yyyy',
+        timeFormat: 'hh:ii aa',
+        firstDay: 0
+    };
+
+    $.fn.datepicker.language['ka'] = {
+        days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+        months: ['January','February','March','April','May','June', 'July','August','September','October','November','December'],
+        monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        today: 'Today',
+        clear: 'Clear',
+        dateFormat: 'mm/dd/yyyy',
+        timeFormat: 'hh:ii aa',
+        firstDay: 0
+    };
+
+    $lang = $('html').attr('lang');
+
+
     $('#datepicker-cash').datepicker({
     // Можно выбрать тольо даты, идущие за сегодняшним днем, включая сегодня
         // minDate: new Date(),
         inline: true,
         selectOtherYears: false,
+        language: $lang,
         navTitles: {
         days: 'MM'
         }
