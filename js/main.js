@@ -154,7 +154,8 @@ var sliderCabinet = new Swiper('.cabinet-slider', {
         hideScrollbar: true,
         btnTpl: {
             smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}"><span class="text">'
-            + close_form_translate_text +
+            + 
+            // close_form_translate_text +
             '</span>' +
                 '<span class="icon"><svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.33-.001L1.163 7.164 2 8 9.165.835 8.33-.001z" fill="#686C78"/><path fill-rule="evenodd" clip-rule="evenodd" d="M1.67-.001l7.166 7.165L8 8 .835.835l.836-.836z" fill="#686C78"/></svg></span>' +
                 "</button>",
@@ -283,6 +284,25 @@ if (isMobile == false) {
     $('.cabinet-navigation').css('padding-left', $wrapperPl)
     $('.cabinet-content').css('margin-right', $wrapperMl)
     $('.cabinet-content').css('padding-right', $wrapperPl)
+
+
+    $('body').on('click', '.header-content__lang', function(event) {
+            event.preventDefault();
+            /* Act on the event */
+            
+            $(this).toggleClass('open');
+
+
+        });
+
+        $(document).mouseup(function (e){ 
+            var div = $(".header-content__lang"); 
+            if (!div.is(e.target) && div.has(e.target).length === 0) { // и не по его дочерним элементам
+                div.removeClass('open');
+            }
+        });
+
+
 } else {
 
     $mapCount = $('.contacts-tabs__item.active').find('.map')
@@ -1039,6 +1059,9 @@ $('.select-field').styler()
         days: 'MM'
         }
     })
+        
+
+
         
 
 
