@@ -285,11 +285,11 @@ if (isMobile == false) {
     $('.cabinet-content').css('padding-right', $wrapperPl)
 
 
-    $('body').on('click', '.header-content__lang', function(event) {
+    $('body').on('click', '.header-content__lang .lang-selected', function(event) {
             event.preventDefault();
             /* Act on the event */
             
-            $(this).toggleClass('open');
+            $(this).parents('.header-content__lang').toggleClass('open');
 
 
         });

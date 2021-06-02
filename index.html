@@ -1150,7 +1150,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="steps-content__item required" data-step="2" data-type="new">
+                     <div class="steps-content__item" data-step="2" data-type="new">
                         <div class="content">
                            <!-- <div class="content-row">
                               <p class="p-label">В каком городе вы планируете вести бизнес?*</p>
@@ -1159,8 +1159,8 @@
                                  <label for="city">Укажите город</label>
                               </div>
                            </div> -->
-                           <div class="content-row required-field" data-block="sites">
-                              <p class="p-label">У вас есть сайт или страничка в социальных сетях?*</p>
+                           <div class="content-row" data-block="sites">
+                              <p class="p-label">У вас есть сайт или страничка в социальных сетях?</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
                                     <div class="checkboxes-item">
@@ -1213,8 +1213,8 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="content-row required-field" data-block="companies">
-                              <p class="p-label">Вы контактировали с другими транспортными компаниями?*</p>
+                           <div class="content-row" data-block="companies">
+                              <p class="p-label">Вы контактировали с другими транспортными компаниями?</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
                                     <div class="checkboxes-item">
@@ -1253,7 +1253,7 @@
                      <div class="steps-content__item required" data-step="2" data-type="old">
                         <div class="content">
                            <div class="content-row" data-block="years">
-                              <p class="p-label">Сколько лет вы уже являетесь дилером?*</p>
+                              <p class="p-label">Сколько лет вы уже являетесь дилером?</p>
                               <div class="content-row__field">
                                  <select id="years" name="years" class="select-field">
                                     <option value="1">1 год</option>
@@ -1264,8 +1264,8 @@
                                  </select>
                               </div>
                            </div>
-                           <div class="content-row required-field" data-block="office">
-                              <p class="p-label">У вас есть офис/сотрудники?*</p>
+                           <div class="content-row" data-block="office">
+                              <p class="p-label">У вас есть офис/сотрудники?</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
                                     <div class="checkboxes-item">
@@ -1299,8 +1299,8 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="content-row required-field" data-block="sites">
-                              <p class="p-label">У вас есть сайт или страничка в социальных сетях?*</p>
+                           <div class="content-row" data-block="sites">
+                              <p class="p-label">У вас есть сайт или страничка в социальных сетях?</p>
                               <div class="content-row__items">
                                  <div class="checkboxes">
                                     <div class="checkboxes-item">
@@ -1354,9 +1354,9 @@
                               </div>
                            </div>
                            <div class="content-row">
-                              <p class="p-label">С какими транспортными компаниями вы контактировали в процессе вашей работы?*</p>
+                              <p class="p-label">С какими транспортными компаниями вы контактировали в процессе вашей работы?</p>
                               <div class="content-row__field">
-                                 <input type="text" name="companies-old" id="companies-old" class="field field--steps required-field">
+                                 <input type="text" name="companies-old" id="companies-old" class="field field--steps">
                                  <label for="companies-old">Укажите компании</label>
                               </div>
 
@@ -1488,21 +1488,6 @@
                               </div>
                            </div>
                            <div class="content-row">
-                              <p class="p-label"> Электронная почта*</p>
-                              <div class="content-row__field ">
-                                 <input type="email" name="email" id="email" class="field field--steps required-field">
-                                 <label for="email">Укажите ваш email</label>
-                                 <p class="error">Неверный формат</p>
-                              </div>
-                           </div>
-                           <div class="content-row">
-                              <p class="p-label">Ваш город*</p>
-                              <div class="content-row__field">
-                                <input type="text" name="client-city" id="client-city" class="field field--steps required-field">
-                                <label for="client-city">Укажите город</label>
-                              </div>
-                           </div>
-                           <div class="content-row">
                               <p class="p-label">Телефон*</p>
                               <div class="content-row__field ">
                                  <input type="tel" name="phone_notauto" id="phone" autocomplete="off" class="field field--steps phone-check required-field" placeholder="+ - - (- - -) - -   - -   - - -">
@@ -1530,6 +1515,22 @@
                                  </a>
                               </div>
                            </div>
+                           <div class="content-row">
+                              <p class="p-label"> Электронная почта*</p>
+                              <div class="content-row__field ">
+                                 <input type="email" name="email" id="email" class="field field--steps required-field">
+                                 <label for="email">Укажите ваш email</label>
+                                 <p class="error">Неверный формат</p>
+                              </div>
+                           </div>
+                           <div class="content-row">
+                              <p class="p-label">Ваш город</p>
+                              <div class="content-row__field">
+                                <input type="text" name="client-city" id="client-city" class="field field--steps">
+                                <label for="client-city">Укажите город</label>
+                              </div>
+                           </div>
+                           
                            <div class="content-row" data-block="question">
                               <p class="p-label">Вопросы или пожелания</p>
                               <div class="content-row__field">
