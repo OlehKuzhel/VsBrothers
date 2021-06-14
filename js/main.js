@@ -154,7 +154,7 @@ var sliderCabinet = new Swiper('.cabinet-slider', {
         hideScrollbar: true,
         btnTpl: {
             smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}"><span class="text">'
-            + close_form_translate_text +
+            +  close_form_translate_text +
             '</span>' +
                 '<span class="icon"><svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.33-.001L1.163 7.164 2 8 9.165.835 8.33-.001z" fill="#686C78"/><path fill-rule="evenodd" clip-rule="evenodd" d="M1.67-.001l7.166 7.165L8 8 .835.835l.836-.836z" fill="#686C78"/></svg></span>' +
                 "</button>",
@@ -232,35 +232,35 @@ $('.terminal-visual .tooltip-circle').hover(function() {
 // });
 
 var $servicesItems = $('.services-items').find('.services-item:hidden')
-$('.link--service span').text($servicesItems.length)
-$('.link--service').attr('data-open', $('.link--service').text())
+// $('.link--service span').text($servicesItems.length)
+// $('.link--service').attr('data-open', $('.link--service').text())
 
 // var $servicesItems = $('.services-items').find('.services-item:hidden')
 
-$('body').on('click', '.link--service', function(event) {
-    event.preventDefault();
-    /* Act on the event */
-    $closeText = $(this).attr('data-close');
-    $openText = $(this).attr('data-open');
-    $(this).toggleClass('active');
+// $('body').on('click', '.link--service', function(event) {
+//     event.preventDefault();
+//     /* Act on the event */
+//     $closeText = $(this).attr('data-close');
+//     $openText = $(this).attr('data-open');
+//     $(this).toggleClass('active');
 
     
 
-    $.each($servicesItems, function(index, el) {
-        $(el).toggleClass('show')
-    });
+//     $.each($servicesItems, function(index, el) {
+//         $(el).toggleClass('show')
+//     });
 
 
 
-    if ($(this).hasClass('active')) {
-        $(this).text($closeText);
-    } else {
-        $(this).text($openText);
-    }
+//     if ($(this).hasClass('active')) {
+//         $(this).text($closeText);
+//     } else {
+//         $(this).text($openText);
+//     }
 
 
 
-});
+// });
 
 
 if($.cookie("cookie-confirm") != 'yes'){
