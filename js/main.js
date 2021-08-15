@@ -154,7 +154,7 @@ var sliderCabinet = new Swiper('.cabinet-slider', {
         hideScrollbar: true,
         btnTpl: {
             smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}"><span class="text">'
-            +  close_form_translate_text +
+            + // close_form_translate_text +
             '</span>' +
                 '<span class="icon"><svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.33-.001L1.163 7.164 2 8 9.165.835 8.33-.001z" fill="#686C78"/><path fill-rule="evenodd" clip-rule="evenodd" d="M1.67-.001l7.166 7.165L8 8 .835.835l.836-.836z" fill="#686C78"/></svg></span>' +
                 "</button>",
@@ -301,6 +301,30 @@ if (isMobile == false) {
             }
         });
 
+        $('.link--economy').hover(function() {
+            $visibleTab = $(this).attr('data-visible');
+            $('.save-content__tab').removeClass('hovered')
+            $('.save-content__tab[data-visible='+$visibleTab+']').addClass('hovered')
+            $('.link--economy').not(this).removeClass('hovered')
+            $(this).addClass('hovered')
+        }, function() {
+            $visibleTab = $(this).attr('data-visible');
+            // $('.save-content__tab[data-visible='+$visibleTab+']').removeClass('hovered')
+            // $(this).removeClass('hovered')
+        });
+
+    $('.save-content__tab').hover(function() {
+        $visibleTab = $(this).attr('data-visible');
+        $('.link--economy').removeClass('hovered')
+        $('.link--economy[data-visible='+$visibleTab+']').addClass('hovered')
+        $('.save-content__tab').not(this).removeClass('hovered')
+        $(this).addClass('hovered')
+    }, function() {
+        $visibleTab = $(this).attr('data-visible');
+        // $('.link--economy[data-visible='+$visibleTab+']').removeClass('hovered')
+        // $(this).removeClass('hovered')
+    });
+
 
 } else {
 
@@ -359,17 +383,17 @@ if (isMobile == false) {
 
 
 
-$('body').on('click', '.save-content__tabs .link--tabs', function(event) {
+$('body').on('click', '.save-content__tabs .link--economy', function(event) {
     event.preventDefault();
 
-
-    $(this).addClass('active').siblings().removeClass('active')
-    $tabActive = $(this).attr('data-visible')
-    $('.save-content__tab').hide()
-    $('.save-content__tab[data-visible='+$tabActive+']').show()
-    $('.save-visual [data-visible]').hide()
-    $('.save-visual [data-visible='+$tabActive+']').show()
-    /* Act on the event */
+    if (isMobile == true) {
+        $(this).addClass('active').siblings().removeClass('active')
+        $tabActive = $(this).attr('data-visible')
+        $('.save-content__tab').hide()
+        $('.save-content__tab[data-visible='+$tabActive+']').show()
+        $('.save-visual [data-visible]').hide()
+        $('.save-visual [data-visible='+$tabActive+']').show()
+    }
 });
 
 
@@ -521,16 +545,35 @@ $('.select-field').styler()
    $('body').on('change', 'input[name=email]', function(event) {
        // event.preventDefault();
        $val = $(this).val();
+
+       var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+       $test = regex.test($val)
+
        
-       if ($val.length > 0) {
-            $(this).addClass('filled')
-            $('[name=partner_email]').val($val)
-            $(this).removeClass('required-field')
-       } else {
-            $(this).removeClass('filled')
-            $('[name=partner_email]').val('')
-            $(this).addClass('required-field')
-       }
+           if ($val.length > 0) {
+                $(this).addClass('filled')
+                if ($test == true) {
+                    $('[name=partner_email]').val($val)
+                     $(this).removeClass('required-field error')
+                } else {
+                    $('[name=partner_email]').val('')
+                    $(this).addClass('required-field error')
+                }
+               
+           } else {
+                $(this).removeClass('filled error')
+                $('[name=partner_email]').val('')
+                $(this).addClass('required-field')
+           }
+       // } 
+       // else {
+            // $(this).removeClass('filled')
+            // $('[name=partner_email]').val('')
+            // $(this).addClass('required-field error')
+       // }
+       
+       
        checkFields($(this))
        /* Act on the event */
    });
@@ -980,7 +1023,16 @@ $('.select-field').styler()
     });
 
 
-    $('.phone-check').mask('000000000000000', {'translation': {0: {pattern: /^\+?[0-9\s\+\(\)]+/}}})
+    // $('.phone-check').mask('+38 (000) 00 00 000', {'translation': {0: {pattern: /^\+?[0-9\s\+\(\)]+/}}})
+    $('.phone-check').mask('+38 (000) 000 00 00', {'translation': {0: {pattern: /^\+?[0-9\s\+\(\)]+/}}}).focus(function(event) {
+        if ($(this).val() == '') {
+            $(this).val('+38 (0')
+        }
+    }).blur(function(event) {
+        if ($(this).val() == '+38 (0') {
+            $(this).val('')
+        }
+    });
 
     function checkFields(input) {
         $parent = input.parents('.steps-content__item')
@@ -1059,6 +1111,61 @@ $('.select-field').styler()
         }
     })
         
+
+var sliderLitCardn = new Swiper('.vin-images__little', {
+    speed: 800,
+    slidesPerView: 3,
+    loopedSlides: 3,
+    slideToClickedSlide: true,
+    spaceBetween: 15,
+    // watchSlidesVisibility: true,
+    // watchSlidesProgress: true,
+    // loop: true,
+    on: {
+        init: function () {
+            $allSlides = this.wrapperEl
+            $realSlides = $($allSlides).find('.swiper-slide:not(.swiper-slide-duplicate)').length
+            $('.vin-images__little').attr('data-slides', $realSlides)
+        },
+    },
+    breakpoints: {
+        320: {
+            direction: 'vertical',
+            spaceBetween: 10,
+            slidesPerView: 3,
+        },
+        789: {
+            simulateTouch: true,
+            spaceBetween: 10,
+            slidesPerView: 3,
+        },
+    },
+
+});
+
+var sliderBigCardn = new Swiper('.vin-images__big', {
+    slidesPerView: 1,
+    // loopedSlides: 4,
+    spaceBetween: 15,
+    // loop: true,
+    thumbs: {
+            // inverse: true,
+            swiper: sliderLitCardn
+          },
+    // navigation: {
+    //     nextEl: '.lotncard--next',
+    //     prevEl: '.lotncard--prev',
+    // },
+    breakpoints: {
+
+        789: {
+            simulateTouch: true,
+            spaceBetween: 10,
+            direction: 'horizontal',
+        },
+    },
+});
+
 
 
         
