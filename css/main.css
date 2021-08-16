@@ -6575,7 +6575,7 @@ h5 { font-weight: 600; font-size: 1.8rem; line-height: 2.8rem; }
 
 .section-support .support-visual:not(.video) .link--play { display: none; }
 
-.section-support .support-visual.video { max-width: 56.5rem; height: 33rem; }
+.section-support .support-visual.video { max-width: 56.5rem; height: 30rem; margin-top: auto; }
 
 .section-support .support-visual.video img { -o-object-fit: cover; object-fit: cover; }
 
