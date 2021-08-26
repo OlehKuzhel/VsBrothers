@@ -352,7 +352,7 @@
   .section-services .services-item:nth-child(10) .icon svg { max-width: 3.2rem; }
   .section-services .services-item:nth-child(11) .icon svg { max-width: 3.2rem; }
   .section-support { padding: 3rem 0 6rem 0; }
-  .section-support .support-visual { display: none; }
+  .section-support .support-visual.video { margin-top: 2rem; }
   .section-support .support-content__items { margin-top: 2.4rem; grid-template-columns: 1fr 1fr; grid-row-gap: 1.6rem; grid-column-gap: 1.6rem; }
   .section-support .support-content__item p { font-size: 1rem; line-height: 1.6rem; }
   .section-insurance .insurance { padding: 2.8rem 0; }

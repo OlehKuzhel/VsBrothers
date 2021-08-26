@@ -140,7 +140,9 @@ var sliderCabinet = new Swiper('.cabinet-slider', {
         touch: false,
         baseClass: "modal",
         beforeLoad: function(instance, slide) {
-            if (isMobile == false) {} else {
+            if (isMobile == false) {
+
+            } else {
 
             }
 
@@ -172,6 +174,32 @@ $('body').on('click', '.fancybtn', function(event) {
         });
         return false
     });
+
+// check native support
+
+
+$('[data-fancybox]').fancybox({
+    // fullScreen : {
+    //     requestOnStart : true
+    // }
+    vimeo : {
+        playsinline : 1
+    },
+    afterShow: function(instance, current) {
+        // console.log(current.type)
+         if (isMobile == true && current.type == 'iframe') {
+            // console.log(instance)
+
+            let $iframe = $(current.$content).find('iframe');
+                $iframe.load(function(){
+                    // var jqueryPlayer = new Vimeo.Player($(this))
+                    $(this).fullscreen()
+
+                })
+            // console.log($(current.$content).find('iframe').contents().find('.fullscreen'))
+            }
+    },
+});
 
 $('body').on('click', '.link--more', function(event) {
     event.preventDefault();
