@@ -162,8 +162,10 @@
   .section-insurance .insurance { padding: 4rem 0 4rem 4rem; position: relative; }
   .section-insurance .insurance-navigation { margin-left: auto; }
   .section-insurance .insurance-title .link--play { position: absolute; left: 4rem; bottom: 4rem; }
+  .section-insurance .insurance-title .link--play svg { margin-left: 0; }
   .section-insurance .insurance-content__text h5 { font-size: 1.8rem; font-weight: 600; }
-  .section-insurance .insurance-slider { right: 0; max-width: 100%; }
+  .section-insurance .insurance-slider { right: 0; max-width: 100%; z-index: -1; }
+  .section-insurance .insurance-slider .link--play { display: none; }
   .section-cabinet { padding: 8rem 0 10rem 0; }
   .section-cabinet .cabinet { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }
   .section-cabinet .cabinet-navigation { max-width: 35rem; margin-top: 4.5rem; padding-right: 0; margin-left: auto; margin-right: auto; }
